@@ -68,7 +68,7 @@ export default function TisseoPage() {
   return (
     <main className={styles.page}>
       <ProjectNav
-        backHref="/projets#tisseo"
+        backHref="/projets?focus=tisseo"
         prevHref="/projets/fabris"
         nextHref="/projets/digilab"
         nextLabel="Projet suivant"
@@ -114,7 +114,7 @@ export default function TisseoPage() {
         <div className={styles.centerWrap}>
           <motion.div {...FADE} className={styles.center}>
             <SizedImage
-              src="/assets/projects/tisseo/mobile.png"
+              src="/assets/projects/tisseo/Mobile.png"
               maxW={390}
               alt="Mobile / Desktop"
             />

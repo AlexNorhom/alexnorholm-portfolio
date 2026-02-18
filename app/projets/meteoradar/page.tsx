@@ -220,7 +220,7 @@ export default function MeteoRadarPage() {
               <div className={styles.ppItem}>
                 <div className={styles.ppDot}>
                   <SizedImage
-                    src="/assets/projects/meteoradar/Pastilleb.svg"
+                    src="/assets/projects/meteoradar/pastilleb.svg"
                     maxW={20}
                     priority
                   />
@@ -247,7 +247,7 @@ export default function MeteoRadarPage() {
               <div className={styles.ppItem}>
                 <div className={styles.ppDot}>
                   <SizedImage
-                    src="/assets/projects/meteoradar/PastilleR.svg"
+                    src="/assets/projects/meteoradar/pastilleR.svg"
                     maxW={20}
                     priority
                   />
@@ -560,7 +560,7 @@ export default function MeteoRadarPage() {
         <CenterWrap wide>
           <motion.div {...FADE} className={styles.center}>
             <SizedImage
-              src="/assets/projects/meteoradar/model.png"
+              src="/assets/projects/meteoradar/Model.png"
               maxW={400}
             />
           </motion.div>
