@@ -73,7 +73,7 @@ const projects: Project[] = [
     id: "accedu",
     leftImages: [
       {
-        src: "/assets/projects/Accedu/AcceduImage.png",
+        src: "/assets/projects/accedu/AcceduImage.png",
         className: "hero",
         maxW: 950,
         maxH: 750,
