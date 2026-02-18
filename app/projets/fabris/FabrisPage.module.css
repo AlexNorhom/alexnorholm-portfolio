@@ -1,0 +1,245 @@
+.page {
+  width: 100%;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  padding: 145px 0 90px;
+}
+
+.heroInner {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.heroLeft {
+  display: flex;
+  justify-content: center;
+}
+
+.heroRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.h1 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 700;
+  color: #424242;
+  line-height: 1.1;
+}
+
+.heroText {
+  margin-top: 16px;
+}
+
+.p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  color: #424242;
+  line-height: 1.6;
+}
+
+.paragraphGap {
+  height: 18px;
+}
+
+.blue {
+  color: #0c76f8;
+  font-weight: 600;
+}
+
+/* ---------- Common layout ---------- */
+.section {
+  padding: 120px 0;
+}
+
+.centerWrap {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.midSpacer {
+  height: 48px;
+}
+
+.smallSpacer {
+  height: 14px;
+}
+
+.bottomSpace {
+  height: 160px;
+}
+
+/* ---------- Images ---------- */
+.sizedWrap {
+  display: inline-block;
+  width: 100%;
+}
+
+.sizedImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- Persona ---------- */
+.personaCenter {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+.personaName {
+  font-size: 22px;
+  font-weight: 700;
+  color: #424242;
+}
+
+.personaChips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.chip {
+  border: 1px solid #ebebeb;
+  border-radius: 6px;
+  padding: 5px 14px;
+  color: #747474;
+  font-size: 16px;
+  line-height: 1.2;
+  background: transparent;
+}
+
+/* ---------- 2 blocs centrés ---------- */
+.twoColsCentered {
+  width: min(980px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.iconTextBlock {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.iconBlockImg img {
+  width: 190px;
+  height: auto;
+  display: block;
+}
+
+.blockTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #424242;
+  line-height: 1.2;
+}
+
+.blockText {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #424242;
+  line-height: 1.55;
+}
+
+/* ---------- Concept text ---------- */
+.textCol {
+  width: min(820px, 100%);
+  margin: 0 auto;
+}
+
+.subTitle24 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #424242;
+  line-height: 1.2;
+}
+
+.text20 {
+  margin-top: 12px;
+}
+
+.p20 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  color: #424242;
+  line-height: 1.6;
+}
+
+/* ---------- App rows (pastille + texte) ---------- */
+.appRows {
+  width: min(820px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 22px;
+}
+
+.pastilleRow {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.pastilleCell {
+  display: flex;
+  justify-content: center;
+  padding-top: 4px; /* aligne la pastille avec le titre */
+}
+
+.pastilleContent {
+  display: grid;
+  gap: 8px;
+}
+
+.rowTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #424242;
+  line-height: 1.15;
+}
+
+.rowText {
+  font-size: 20px;
+  font-weight: 400;
+  color: #424242;
+  line-height: 1.55;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .section {
+    padding: 90px 0;
+  }
+
+  .twoColsCentered {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}

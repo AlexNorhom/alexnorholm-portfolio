@@ -1,0 +1,130 @@
+.contactSection {
+  position: relative;
+  margin-top: 220px;
+}
+
+/* Titre */
+.title {
+  text-align: left;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #424242;
+  margin: 0 0 90px;
+}
+
+/* ✅ Conteneur des 3 infos : espacées + sur une ligne si possible */
+.column {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  gap: 26px; /* ✅ espacement entre les pills */
+  flex-wrap: wrap; /* ✅ si ça ne rentre pas, ça passe à la ligne proprement */
+
+  padding: 0; /* ✅ enlève le padding qui décalait visuellement */
+  pointer-events: none;
+}
+
+/* “Bouton” */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  height: 56px;
+  padding: 0 22px; /* ✅ important : pas de padding vertical */
+
+  border: 1px solid #e7e7e7;
+  border-radius: 16px;
+
+  text-decoration: none;
+  color: #424242;
+
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  pointer-events: auto;
+}
+
+/* icônes */
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 auto;
+  color: #1a73ff;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+}
+
+.linkedin {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+/* texte */
+.text {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.textLink {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+/* footer */
+.footer {
+  position: absolute;
+  right: 34px;
+  bottom: 28px;
+
+  font-size: 20px;
+  font-weight: 500;
+  color: #b5b5b5;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .title {
+    font-size: 48px;
+    margin-bottom: 70px;
+  }
+
+  .text,
+  .textLink {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .title {
+    font-size: 40px;
+  }
+
+  /* ✅ en mobile : pills full width */
+  .pill {
+    width: 100%;
+    max-width: 520px;
+    justify-content: flex-start;
+  }
+
+  .footer {
+    position: static;
+    margin-top: 70px;
+    text-align: left;
+  }
+}

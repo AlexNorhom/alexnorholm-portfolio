@@ -1,0 +1,106 @@
+/* ===== Header layout ===== */
+.header {
+  position: fixed;
+  top: 36px;
+  left: 0;
+  right: 0;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo */
+.logoWrap {
+  position: fixed;
+  top: 36px;
+  left: 36px;
+  z-index: 60;
+}
+
+.logo {
+  display: block;
+}
+
+/* Nav pill (centré) */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+
+  padding: 16px 34px;
+  border: 1px solid #eeeeee;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.navLink {
+  position: relative;
+  color: #6b6b6b;
+  text-decoration: none;
+
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+.active {
+  color: #2b2b2b;
+  font-weight: 500;
+}
+
+.dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #1a73ff;
+}
+
+/* ===== Lang button (à droite sans pousser la nav) ===== */
+.langBtn {
+  position: fixed;
+  top: 36px;
+  right: 36px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  border: 1px solid transparent;
+  background: transparent;
+
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  cursor: pointer;
+  z-index: 60;
+
+  text-decoration: none;
+}
+
+.langBtn:hover {
+  border-color: #ebebeb;
+  background: #f8f8f8;
+}
+
+.flag {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.langText {
+  font-size: 18px;
+  font-weight: 500;
+  color: #747474;
+  text-decoration: none;
+}

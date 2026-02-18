@@ -1,0 +1,387 @@
+:root {
+  --headerH: 120px; /* ajuste si besoin */
+  --gap: 16px; /* cohérence: même gap partout */
+}
+
+.page {
+  width: 100%;
+}
+
+.colB {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap); /* ✅ même cohérence */
+  max-width: 200px;
+}
+
+/* 🔥 empêche d’être entre 2 projets */
+.snap {
+  height: calc(100vh - var(--headerH));
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  padding-top: 100px;
+  padding-bottom: 800px; /* ✅ laisse respirer le bas */
+}
+
+/* section plus basse, pas sous le header */
+.section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  scroll-margin-top: var(--headerH);
+
+  height: calc(100vh - var(--headerH)); /* ✅ exactement une “slide” */
+
+  display: flex;
+  align-items: center;
+
+  /* descend le contenu */
+  padding: 40px 0 60px;
+}
+
+/* largeur globale + colonnes */
+.sectionInner {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.25fr 440px; /* ← colonne droite FIXE (plus étroite) */
+  gap: 56px;
+  align-items: center;
+  position: relative;
+}
+
+/* Col gauche */
+.left {
+  display: flex;
+  justify-content: center;
+}
+
+.leftMedia {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: nowrap;
+}
+
+/* limite image export */
+.media {
+  width: 100%;
+  height: auto;
+  max-height: 560px; /* optionnel : garde tout cohérent */
+  object-fit: contain;
+}
+
+.mediaWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Col droite */
+.right {
+  width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #3b3b3b;
+  letter-spacing: -0.02em;
+}
+
+.h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 400;
+  color: #747474;
+}
+
+.blue {
+  color: #1a73ff;
+}
+
+/* Frame 2 colonnes */
+.gridFrame {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: var(--gap);
+  align-items: start;
+}
+
+/* map carrée */
+.mapWrap {
+  width: 170px;
+  aspect-ratio: 1/1;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ✅ tools alignés à droite + pas limité à 6 */
+.toolsWrap {
+  margin-top: 14px;
+  width: 160px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 50px);
+  gap: 10px;
+
+  justify-content: end; /* ✅ pack à droite */
+  direction: rtl; /* ✅ remplit depuis la droite */
+}
+.tool {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  overflow: hidden;
+  direction: ltr; /* ✅ évite l’inversion interne */
+}
+
+.tool {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.toolImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ✅ blocs à droite : fill F8F8F8 + stroke EBEBEB */
+.pill {
+  height: 48px;
+  padding: 10px 12px;
+  border: 1px solid #ebebeb;
+  border-radius: 14px;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pillText {
+  font-size: 18px;
+  font-weight: 400;
+  color: #747474;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pillTextStrong {
+  font-size: 18px;
+  font-weight: 500;
+  color: #747474;
+}
+
+/* team right side */
+.pillTeamRight {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* avatars */
+.avatars {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid #f8f8f8;
+}
+
+.avatarOverlap {
+  border-radius: 999px;
+  object-fit: cover;
+  margin-left: -10px;
+  border: 2px solid #f8f8f8; /* ✅ stroke maquette */
+}
+
+.emoji {
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* ✅ détail box (grand bloc) : F8F8F8 + stroke */
+.detailBox {
+  margin-top: 0;
+  padding: 14px 12px;
+  border: 1px solid #ebebeb;
+  border-radius: 14px;
+  background: #f8f8f8;
+}
+
+.detailTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 600;
+  color: #4a4a4a;
+  margin-bottom: 10px;
+}
+
+.detailPin {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+/* ✅ tags en fit-content (comme maquette) */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  height: 34px;
+  padding: 0 10px;
+
+  background: #ffffff;
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+
+  width: fit-content;
+}
+
+.tagText {
+  font-size: 16px;
+  color: #747474;
+}
+
+.tagEmoji {
+  font-size: 16px;
+  opacity: 0.85;
+}
+
+.tagIcon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+/* ✅ CTA pleine largeur de la colonne */
+.cta {
+  width: 100%;
+  height: 54px;
+
+  border-radius: 999px;
+  background: #eaf2ff;
+  border: 1px solid #d7e6ff;
+  color: #1a73ff;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.15s ease;
+}
+
+.cta:hover {
+  background: #1a73ff;
+  border-color: #1a73ff;
+  color: #ffffff;
+}
+
+.ctaIcon {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.arrowBlue,
+.arrowWhite {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+}
+
+.arrowWhite {
+  opacity: 0;
+}
+
+.cta:hover .arrowBlue {
+  opacity: 0;
+}
+
+.cta:hover .arrowWhite {
+  opacity: 1;
+}
+
+/* rail à droite */
+.rail {
+  position: absolute;
+  right: -64px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 220px;
+  background: #f0f0f0;
+  border-radius: 99px;
+}
+
+.railDot {
+  position: absolute;
+  right: -4px;
+  top: 45%;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #1a73ff;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .snap {
+    height: auto;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+  .section {
+    min-height: unset;
+    padding: 80px 0;
+  }
+  .sectionInner {
+    grid-template-columns: 1fr;
+  }
+  .right {
+    width: 100%;
+  }
+  .rail {
+    display: none;
+  }
+}

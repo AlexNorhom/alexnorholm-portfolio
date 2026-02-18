@@ -1,0 +1,296 @@
+/* IMPORTANT: empêche toute largeur de page > viewport */
+.page {
+  width: 100%;
+  overflow-x: hidden; /* ✅ bloque le scroll horizontal global */
+  padding-bottom: 120px;
+}
+
+/* ---------------- HERO ---------------- */
+.hero {
+  padding-top: 200px; /* espace sous header */
+  padding-bottom: 40px;
+}
+
+/* Section horizontale */
+.xSection {
+  width: 100%;
+  position: relative;
+  overflow: hidden; /* évite de "détruire" la page en largeur */
+  margin: 0 auto;
+}
+
+/* Permet de convertir le scroll vertical en “temps” pour le x */
+.xSticky {
+  position: sticky;
+  top: 0; /* tu peux ajuster si tu veux que ça démarre plus tôt/tard visuellement */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* La rangée horizontale */
+.xRow {
+  display: flex;
+  gap: 18px; /* adapte à ta maquette */
+  will-change: transform;
+}
+
+/* Chaque image : même hauteur pour toutes */
+.xItem {
+  flex: 0 0 auto;
+  border-radius: 18px; /* si besoin */
+  overflow: visible; /* important : ne coupe pas les bords */
+}
+
+/* Image */
+.xImg {
+  height: 100%;
+  width: auto; /* largeur libre selon format */
+  object-fit: contain;
+  display: block;
+}
+
+.heroInner {
+  width: min(1220px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.h1 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 700;
+  color: #424242;
+  line-height: 1.1;
+  padding-bottom: 18px;
+}
+
+.MainColor {
+  width: 100px;
+}
+
+.bigSpacer {
+  height: 220px;
+}
+
+.Spacer {
+  height: 30px;
+}
+
+.LittleSpacer {
+  height: 16px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  color: #424242;
+  line-height: 1.6;
+}
+
+.blue {
+  color: #1a73ff;
+  font-weight: 600;
+}
+
+/* ---------------- Layout helpers ---------------- */
+.section {
+  width: min(980px, 92vw);
+  margin: 0 auto;
+  padding: 42px 0; /* ✅ contrôle espace entre blocs (voir plus bas) */
+}
+
+.sectionWide {
+  width: 100%;
+  padding: 10px 0 60px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+/* ---------------- UX Label ---------------- */
+.uxLabel {
+  height: 56px;
+  padding: 12 24px;
+  border-radius: 16px;
+  background: #f8f8f8;
+  border: 1px solid #ebebeb;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px; /* demandé */
+  font-weight: 700;
+  color: #3b3b3b;
+  letter-spacing: -0.02em;
+}
+
+/* ---------------- Titles & text blocks ---------------- */
+.h2 {
+  margin: 8px 0 0 0;
+  font-size: 36px;
+  font-weight: 700;
+  color: #3b3b3b;
+  letter-spacing: -0.02em;
+}
+
+.smallP {
+  margin: 0;
+  font-size: 20px;
+  color: #424242;
+  line-height: 1.45;
+  max-width: 760px;
+}
+
+/* ---------------- Sized image (maxW fiable) ---------------- */
+.sizedWrap {
+  width: 100%;
+  display: inline-block; /* ✅ clé: max-width fonctionne */
+  margin: 0 auto;
+}
+
+.sizedImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  /* pas de border/stroke */
+}
+
+/* ---------------- AaGray + Text same height row ---------------- */
+.twoColSameH {
+  width: min(400px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0fr 0fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.sameH {
+  height: 240px; /* ✅ même hauteur visuelle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sameHImg {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ---------------- Green info box ---------------- */
+.greenInfo {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(66, 131, 0, 0.25);
+  background: #f6ffed; /* demandé */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.greenText {
+  color: #428300; /* demandé */
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ---------------- Horizontal auto scroll gallery ---------------- */
+/* section height = longueur de "scrub" */
+.xSection {
+  width: 100%;
+  height: 220vh; /* règle la durée du scroll horizontal */
+  position: relative;
+
+  /* IMPORTANT: ne jamais overflow visible ici,
+     sinon ça peut influencer le layout sur certains navigateurs */
+  overflow: hidden;
+}
+
+.xSticky {
+  position: sticky;
+  top: 120px; /* sous header */
+  height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+
+  /* IMPORTANT: on coupe tout ce qui dépasse, ça empêche la page de s'élargir */
+  overflow: hidden;
+}
+
+.xRow {
+  display: flex;
+  gap: 26px;
+  padding: 0 60px;
+  will-change: transform;
+}
+
+.xItem {
+  flex: 0 0 auto;
+  border-radius: 22px;
+}
+
+.xImg {
+  height: 100%;
+  width: auto; /* ✅ même hauteur, largeur libre */
+  object-fit: contain;
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.08));
+}
+
+/* ---------------- bottom ---------------- */
+.bottomSpace {
+  height: 120px;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 980px) {
+  .hero {
+    padding-top: 120px;
+  }
+
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .h1 {
+    font-size: 36px;
+  }
+
+  .p {
+    font-size: 18px;
+  }
+
+  .section {
+    padding: 52px 0;
+  }
+
+  .twoColSameH {
+    grid-template-columns: 1fr;
+  }
+
+  .sameH {
+    height: 200px;
+  }
+
+  .xSticky {
+    top: 96px;
+    height: calc(100vh - 96px);
+  }
+}

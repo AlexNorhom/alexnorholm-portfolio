@@ -1,0 +1,215 @@
+.page {
+  width: 100%;
+}
+
+.section {
+  padding: 120px 0;
+}
+
+.sectionWide {
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.sizedWrap {
+  display: inline-block;
+}
+
+.sizedImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Textes */
+.textBlock {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.subtitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #424242;
+  margin-bottom: 14px;
+}
+
+.text {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #424242;
+}
+
+.textMuted {
+  font-size: 20px;
+  color: #c0c0c0;
+  line-height: 1.5;
+}
+
+/* Bleu */
+.blue {
+  color: #0c76f8;
+  font-weight: 600;
+}
+
+/* Spacers */
+.midSpacer {
+  height: 48px;
+}
+
+.smallSpacer {
+  height: 14px;
+}
+
+.bottomSpace {
+  height: 160px;
+}
+
+/* =========================
+   UI KIT SCROLL
+========================= */
+.scrollWrap {
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollWrap::-webkit-scrollbar {
+  display: none; /* Chrome / Safari */
+}
+
+.scrollInner {
+  width: max-content;
+  padding-left: 6vw;
+  padding-right: 6vw;
+}
+
+.scrollHint {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 14px;
+  color: #c0c0c0;
+}
+
+.centerWrap {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+.centerWrapWide {
+  width: min(1320px, 92vw);
+  margin: 0 auto;
+}
+
+/* --- UI KIT full-bleed horizontal scroll --- */
+/* --- UI KIT full-bleed horizontal scroll --- */
+.uiKitBleed {
+  width: 100vw;
+  margin-left: 0%;
+  transform: translateX(-50%);
+}
+
+/* IMPORTANT : forcer le démarrage à gauche */
+.uiKitScroller {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  text-align: left; /* ✅ évite le centrage des inline-block */
+  padding: 0; /* ✅ aucune marge */
+}
+
+.uiKitScroller::-webkit-scrollbar {
+  display: none;
+}
+
+/* hauteur contrôlée + contenu qui reste collé à gauche */
+.uiKitInner {
+  height: 400px; /* valeur par défaut */
+  display: inline-block; /* ok, mais plus centré grâce au text-align:left */
+  padding: 0; /* ✅ aucune marge */
+  margin: 0; /* ✅ aucune marge */
+  margin-left: 5%;
+}
+
+/* image : hauteur fixe, largeur auto (scroll horizontal) */
+.uiKitImg {
+  height: 100%;
+  width: auto;
+  display: block;
+  margin: 0; /* ✅ aucune marge */
+}
+
+/* hint */
+.uiKitHint {
+  margin-top: 12px;
+  text-align: center;
+  color: #c0c0c0;
+  font-size: 14px;
+}
+
+.hintBold {
+  font-weight: 700;
+}
+
+.hero {
+  padding: 145px 0 90px;
+}
+
+.heroInner {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.heroLeft {
+  display: flex;
+  justify-content: center;
+}
+
+.heroRight {
+  display: flex;
+  flex-direction: column;
+}
+
+.h1 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 700;
+  color: #424242;
+  line-height: 1.05;
+}
+
+.intro {
+  margin-top: 18px;
+  display: grid;
+  gap: 14px;
+}
+
+.p {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.55;
+  color: #424242;
+}
+
+/* Responsive hero */
+@media (max-width: 980px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .h1 {
+    font-size: 44px;
+  }
+}

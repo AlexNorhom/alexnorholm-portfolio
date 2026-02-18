@@ -1,0 +1,19 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.line {
+  font-size: clamp(44px, 5.5vw, 92px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: #424242;
+}
+
+.word {
+  display: inline-block;
+  transition: opacity 140ms ease;
+  will-change: opacity;
+}

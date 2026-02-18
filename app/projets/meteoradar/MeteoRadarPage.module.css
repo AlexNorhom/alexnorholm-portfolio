@@ -1,0 +1,663 @@
+.page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.topSpacer {
+  height: 34px;
+}
+
+.bigSpacer {
+  height: 72px;
+}
+
+.midSpacer {
+  height: 34px;
+}
+
+.bottomSpace {
+  height: 90px;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+}
+
+/* ✅ wrapper centré */
+.centerWrap {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+.centerWrapWide {
+  width: min(1320px, 92vw);
+  margin: 0 auto;
+}
+
+.blue {
+  color: #0c76f8;
+  font-weight: 600;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  padding-top: 10px;
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.heroLeft {
+  display: grid;
+  place-items: center;
+}
+
+.heroRight {
+  display: grid;
+  gap: 14px;
+}
+
+.h1 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 700;
+  color: #424242;
+  line-height: 1.1;
+}
+
+.intro {
+  display: grid;
+  gap: 10px;
+}
+
+.p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  color: #424242;
+  line-height: 1.6;
+}
+
+/* ---------- sections ---------- */
+.section {
+  width: 100%;
+}
+
+/* ---------- SizedImage ---------- */
+.sizedWrap {
+  display: inline-block;
+  width: 100%;
+}
+
+.sizedImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
+/* ---------- Pos/Neg columns ---------- */
+.twoCols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 42px;
+  align-items: start;
+}
+
+.col {
+  display: grid;
+  gap: 18px;
+}
+
+/* pastille + texte */
+.pillRow {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.pillDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #0c76f8;
+  margin-top: 8px;
+}
+
+.pillDotGray {
+  background: #c8c8c8;
+}
+
+.pillTitle {
+  font-weight: 800;
+  font-size: 20px;
+  color: #3b3b3b;
+}
+
+.pillText {
+  margin-top: 6px;
+  color: #6a6a6a;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ---------- PUB GRID ---------- */
+.pubGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 42px;
+  align-items: start;
+}
+
+.pubTitleImg {
+  max-width: 520px;
+}
+
+.titleImgWrap {
+  max-width: 520px;
+}
+
+.titleImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.pubBlock {
+  margin-top: 16px;
+
+  border-radius: 14px;
+  padding: 16px 18px;
+  background: #fff;
+}
+
+.subTitle {
+  font-weight: 800;
+  color: #3b3b3b;
+  font-size: 18px;
+}
+
+.subText {
+  margin-top: 8px;
+  color: #6a6a6a;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.pubArrowLine {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.boldLine {
+  font-weight: 600;
+  color: #424242;
+  font-size: 20px;
+}
+
+.smallSpacer {
+  height: 16px;
+}
+
+/* ---------- Persona ---------- */
+.personaName {
+  margin: 14px 0 0;
+  font-size: 28px;
+  font-weight: 800;
+  color: #3b3b3b;
+}
+
+.personaMeta {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.smallInfoPill {
+  border: 1px solid #ebebeb;
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-size: 14px;
+  color: #5f5f5f;
+  background: #fff;
+}
+
+.personaGoal {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.goalTitle {
+  font-weight: 800;
+  color: #3b3b3b;
+  font-size: 22px;
+}
+
+.goalText {
+  margin-top: 10px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #747474;
+}
+
+/* ---------- Heuristiques ---------- */
+.heurGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 42px;
+  align-items: center;
+}
+
+/* ---------- Benchmark (refait) ---------- */
+
+.benchGrid {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 56px;
+  align-items: start;
+}
+
+/* responsive: évite que “ça disparaisse” en forçant un flow propre */
+@media (max-width: 980px) {
+  .benchGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.benchCard {
+  display: grid;
+  justify-items: center; /* ✅ centre chaque item comme maquette */
+  gap: 16px;
+}
+
+.benchImgWrap {
+  width: min(320px, 86vw); /* ✅ images plus petites */
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+.benchImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.benchCaption {
+  width: min(320px, 86vw); /* aligné avec l’image */
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  column-gap: 14px;
+  align-items: start;
+}
+
+.benchN {
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1;
+  color: #0c76f8;
+  transform: translateY(2px);
+}
+
+.benchText {
+  display: grid;
+  gap: 10px;
+}
+
+.benchTitle {
+  font-size: 26px;
+  font-weight: 800;
+  color: #3b3b3b;
+  line-height: 1.1;
+}
+
+.benchBody {
+  color: #424242;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.benchStrong {
+  font-weight: 600;
+}
+
+/* ---------- Recos: side-by-side ---------- */
+.sideBySide {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.blockTitle {
+  font-size: 22px;
+  font-weight: 800;
+  color: #3b3b3b;
+}
+
+.blockText {
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #6a6a6a;
+}
+
+/* ---------- 3 cols (timer/pub/widget) ---------- */
+.threeCols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.colCard {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.colCardSpacer {
+  height: 10px;
+}
+
+.labelBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 18px;
+  border: 1px solid #ebebeb;
+  background: #f8f8f8;
+  font-weight: 800;
+  font-size: 18px;
+  color: #3b3b3b;
+}
+
+.colCardText {
+  margin-top: 10px;
+  color: #424242;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 34ch;
+  font-weight: 400;
+}
+
+/* ---------- Model section ---------- */
+.modelTwoCols {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    max-content
+  ); /* ✅ colonnes à la taille des cards */
+  gap: 26px; /* ajuste ici l’écart */
+  justify-content: center; /* ✅ centre le groupe dans la section */
+  align-items: start;
+}
+
+.modelCol {
+  display: grid;
+}
+
+.roundCard {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 16px;
+  align-items: start;
+  border: 1px solid #ebebeb;
+  border-radius: 16px;
+  padding: 18px;
+  background: #fff;
+  width: fit-content;
+}
+
+.roundIconWrap {
+  display: grid;
+  place-items: start;
+}
+
+.roundIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.roundTitle {
+  font-weight: 800;
+  color: #3b3b3b;
+  font-size: 18px;
+}
+
+.roundText {
+  margin-top: 10px;
+  color: #424242;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.numSection {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.blueBold {
+  color: #0c76f8;
+  font-weight: 700;
+}
+
+/* grid globale : colonne chiffre + colonne contenu */
+.numGrid {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  column-gap: 42px;
+  align-items: start;
+}
+
+/* grille interne (3 ou 4 colonnes) */
+.numCols3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px;
+}
+
+.numCols4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 42px;
+}
+
+/* chaque item = mini grid chiffre + bloc texte */
+.numItem {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  column-gap: 16px;
+  align-items: start;
+}
+
+.numN {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1;
+  color: #0c76f8;
+  transform: translateY(2px);
+}
+
+.numTitle {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #424242;
+  line-height: 1.15;
+}
+
+.numText {
+  margin: 10px 0 0;
+  font-size: 20px;
+  line-height: 1.35;
+  color: #424242;
+}
+
+/* ✅ wrapper centré comme le reste du site */
+.centerWrap {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+/* optionnel : évite que ça colle trop au bord sur grands écrans */
+.centerWrapWide {
+  width: min(1320px, 92vw);
+  margin: 0 auto;
+}
+
+.gras {
+  font-weight: 700;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .heroInner,
+  .pubGrid,
+  .personaGoal,
+  .heurGrid,
+  .sideBySide {
+    grid-template-columns: 1fr;
+  }
+
+  .twoCols,
+  .benchGrid,
+  .threeCols,
+  .modelTwoCols {
+    grid-template-columns: 1fr;
+  }
+
+  .h1 {
+    font-size: 36px;
+  }
+}
+
+.veTitle {
+  margin: 0 0 14px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #424242;
+}
+
+.veP {
+  margin: 0 0 14px 0;
+  font-size: 20px;
+  line-height: 1.3;
+  color: #424242;
+}
+
+.veBlueBold {
+  color: #0c76f8;
+  font-weight: 600;
+}
+
+.veSource {
+  margin: 8px 0 0 0;
+  font-size: 20px;
+  color: #bdbdbd;
+}
+
+/* Blocs texte (image gauche / texte droite) */
+.leftTextBlock {
+  width: min(930px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 42px;
+  align-items: center;
+}
+
+.leftIllu {
+  display: flex;
+  justify-content: center;
+}
+
+.rightText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ---------------------------------------------- */
+
+/* ---- Meteo : Points +/- (centré, 2 colonnes) ---- */
+.ppWrap {
+  display: grid;
+  place-items: center;
+}
+
+.ppGrid {
+  width: min(1120px, 92vw);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+
+  justify-content: center;
+  align-items: start;
+}
+
+.ppItem {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.ppDot {
+  transform: translateY(6px);
+}
+
+.ppContent {
+  display: grid;
+  gap: 10px;
+}
+
+.ppTitle {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: #3b3b3b;
+  line-height: 1.15;
+}
+
+.ppText {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.45;
+  color: #424242;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+/* responsive */
+@media (max-width: 980px) {
+  .ppGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}

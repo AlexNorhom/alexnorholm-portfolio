@@ -1,0 +1,250 @@
+.page {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+.left {
+  padding: 140px 6vw 120px 6vw;
+}
+
+.right {
+  position: relative;
+  padding-right: 0;
+}
+
+.videoFrame {
+  position: sticky;
+  top: 90px;
+  height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.videoShell {
+  width: min(720px, 48vw);
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(0);
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #fafafa;
+  display: block;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: top;
+  margin-top: 8.5rem;
+}
+
+.title {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: #424242;
+  margin: 0 0 14px 0;
+}
+
+.blue {
+  color: #1a73ff;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #424242;
+  margin: 0 0 18px 0;
+}
+
+.scrollHint {
+  position: absolute;
+  left: 24px;
+  bottom: 42px;
+  text-align: left;
+  color: #cfcfcf;
+}
+
+.heroInner {
+  width: 100%;
+  max-width: 680px;
+  margin: 0;
+  text-align: left;
+  padding: 0 24px;
+}
+
+.block {
+  padding: 18px 0;
+}
+
+.p {
+  font-size: 18px;
+  line-height: 1.55;
+  color: #424242;
+  margin: 0;
+}
+
+.bigSpacer {
+  height: 420px;
+}
+
+.h2WithIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.block p + p {
+  margin-top: 28px;
+}
+
+.h2Icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+  opacity: 0.9;
+}
+
+/* fade sections */
+.out {
+  opacity: 0;
+  transform: translateY(12px);
+  filter: blur(2px);
+  transition:
+    opacity 500ms ease,
+    transform 600ms ease,
+    filter 600ms ease;
+  will-change: opacity, transform, filter;
+}
+
+.in {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 500ms ease,
+    transform 600ms ease,
+    filter 600ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .out,
+  .in {
+    transition: none;
+    transform: none;
+    filter: none;
+  }
+}
+
+.inlineMedia {
+  margin-top: 60px;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ✅ Sticky Scene : texte FIXE au milieu-gauche */
+.stickyStage {
+  position: relative;
+  min-height: 160vh; /* ✅ important : donne du “temps” au sticky */
+}
+
+.stickyInner {
+  position: sticky;
+  top: 52vh;
+  transform: translateY(-50%);
+  width: 100%;
+  max-width: 680px;
+  padding: 0 24px;
+  will-change: opacity;
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .page {
+    position: relative;
+  }
+
+  .right {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .left {
+    position: relative;
+    z-index: 2;
+  }
+
+  .videoFrame {
+    position: relative;
+    top: auto;
+    height: auto;
+    padding: 30px 0 90px 0;
+    justify-content: center;
+  }
+
+  .videoShell {
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .video {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+  }
+}
+
+.contactCta {
+  margin-top: 46px; /* ajuste si tu veux */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  background: transparent;
+  border: none;
+  padding: 0;
+
+  cursor: pointer;
+}
+
+.contactArrow {
+  transition: transform 220ms ease;
+  transform: rotate(0deg);
+  transform-origin: center;
+}
+
+/* hover : flèche vers la droite (rotation -45°) */
+.contactCta:hover .contactArrow {
+  transform: rotate(-45deg);
+}
+
+.blueContact {
+  color: #1a73ff;
+  font-weight: 700;
+  font-size: 20px;
+}
