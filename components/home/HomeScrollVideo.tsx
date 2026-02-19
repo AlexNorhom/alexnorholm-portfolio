@@ -308,6 +308,17 @@ export default function HomeScrollVideo() {
       const el = ref.current;
       if (!el) return;
 
+      // ✅ FIX DÉFINITIF :
+      // Si IntersectionObserver n'existe pas (PC du taf / navigateur entreprise),
+      // on affiche directement la section (pas d'animation, mais pas vide).
+      if (
+        typeof window !== "undefined" &&
+        !("IntersectionObserver" in window)
+      ) {
+        setInView(true);
+        return;
+      }
+
       const obs = new IntersectionObserver(([entry]) => {
         setInView(entry.isIntersecting);
       }, options);
