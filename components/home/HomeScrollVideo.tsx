@@ -303,44 +303,43 @@ export default function HomeScrollVideo() {
   ) {
     const ref = useRef<T | null>(null);
     const [inView, setInView] = useState(false);
-
-    // ✅ si le fallback s’active, on “lock” l’affichage (on ne repasse plus à false)
     const forcedVisibleRef = useRef(false);
 
     useEffect(() => {
       const el = ref.current;
       if (!el) return;
 
-      // ✅ Fallback si l'observer existe mais ne déclenche jamais (cas PC du taf)
-      const fallbackId = window.setTimeout(() => {
-        forcedVisibleRef.current = true;
-        setInView(true);
-      }, 1500);
-
-      // Si vraiment pas dispo -> visible direct
       if (!("IntersectionObserver" in window)) {
-        forcedVisibleRef.current = true;
         setInView(true);
-        window.clearTimeout(fallbackId);
+        forcedVisibleRef.current = true;
         return;
       }
 
+      let gotCallback = false;
+
       const obs = new IntersectionObserver(([entry]) => {
-        // si fallback a forcé -> on ignore les updates
+        gotCallback = true;
         if (forcedVisibleRef.current) return;
-
-        // ✅ comportement normal : in/out selon intersection
         setInView(entry.isIntersecting);
-
-        // si au moins une fois on a eu un callback, on peut enlever le fallback timer
-        window.clearTimeout(fallbackId);
       }, options);
 
       obs.observe(el);
 
+      // ✅ fallback “sans timer” : si aucun callback très vite, on force visible
+      const raf1 = requestAnimationFrame(() => {
+        const raf2 = requestAnimationFrame(() => {
+          if (!gotCallback) {
+            forcedVisibleRef.current = true;
+            setInView(true);
+            obs.disconnect();
+          }
+        });
+        return () => cancelAnimationFrame(raf2);
+      });
+
       return () => {
         obs.disconnect();
-        window.clearTimeout(fallbackId);
+        cancelAnimationFrame(raf1);
       };
     }, [options]);
 
