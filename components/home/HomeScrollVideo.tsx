@@ -303,44 +303,28 @@ export default function HomeScrollVideo() {
   ) {
     const ref = useRef<T | null>(null);
     const [inView, setInView] = useState(false);
-    const forcedVisibleRef = useRef(false);
 
     useEffect(() => {
       const el = ref.current;
       if (!el) return;
 
-      if (!("IntersectionObserver" in window)) {
+      // ✅ FIX DÉFINITIF :
+      // Si IntersectionObserver n'existe pas (PC du taf / navigateur entreprise),
+      // on affiche directement la section (pas d'animation, mais pas vide).
+      if (
+        typeof window !== "undefined" &&
+        !("IntersectionObserver" in window)
+      ) {
         setInView(true);
-        forcedVisibleRef.current = true;
         return;
       }
 
-      let gotCallback = false;
-
       const obs = new IntersectionObserver(([entry]) => {
-        gotCallback = true;
-        if (forcedVisibleRef.current) return;
         setInView(entry.isIntersecting);
       }, options);
 
       obs.observe(el);
-
-      // ✅ fallback “sans timer” : si aucun callback très vite, on force visible
-      const raf1 = requestAnimationFrame(() => {
-        const raf2 = requestAnimationFrame(() => {
-          if (!gotCallback) {
-            forcedVisibleRef.current = true;
-            setInView(true);
-            obs.disconnect();
-          }
-        });
-        return () => cancelAnimationFrame(raf2);
-      });
-
-      return () => {
-        obs.disconnect();
-        cancelAnimationFrame(raf1);
-      };
+      return () => obs.disconnect();
     }, [options]);
 
     return { ref, inView };
