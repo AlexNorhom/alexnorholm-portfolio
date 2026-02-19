@@ -3,6 +3,7 @@ import "./globals.css";
 import { Sora } from "next/font/google";
 import Header from "@/components/header/Header";
 import { LanguageProvider } from "@/components/shared/LanguageProvider";
+import Polyfills from "@/components/shared/Polyfills";
 
 export const metadata: Metadata = {
   title: "Alex Norholm",
@@ -22,6 +23,8 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={sora.variable}>
+        <Polyfills />
+
         <LanguageProvider>
           <Header />
           {children}
