@@ -304,27 +304,44 @@ export default function HomeScrollVideo() {
     const ref = useRef<T | null>(null);
     const [inView, setInView] = useState(false);
 
+    // ✅ si le fallback s’active, on “lock” l’affichage (on ne repasse plus à false)
+    const forcedVisibleRef = useRef(false);
+
     useEffect(() => {
       const el = ref.current;
       if (!el) return;
 
-      // ✅ FIX DÉFINITIF :
-      // Si IntersectionObserver n'existe pas (PC du taf / navigateur entreprise),
-      // on affiche directement la section (pas d'animation, mais pas vide).
-      if (
-        typeof window !== "undefined" &&
-        !("IntersectionObserver" in window)
-      ) {
+      // ✅ Fallback si l'observer existe mais ne déclenche jamais (cas PC du taf)
+      const fallbackId = window.setTimeout(() => {
+        forcedVisibleRef.current = true;
         setInView(true);
+      }, 1500);
+
+      // Si vraiment pas dispo -> visible direct
+      if (!("IntersectionObserver" in window)) {
+        forcedVisibleRef.current = true;
+        setInView(true);
+        window.clearTimeout(fallbackId);
         return;
       }
 
       const obs = new IntersectionObserver(([entry]) => {
+        // si fallback a forcé -> on ignore les updates
+        if (forcedVisibleRef.current) return;
+
+        // ✅ comportement normal : in/out selon intersection
         setInView(entry.isIntersecting);
+
+        // si au moins une fois on a eu un callback, on peut enlever le fallback timer
+        window.clearTimeout(fallbackId);
       }, options);
 
       obs.observe(el);
-      return () => obs.disconnect();
+
+      return () => {
+        obs.disconnect();
+        window.clearTimeout(fallbackId);
+      };
     }, [options]);
 
     return { ref, inView };
